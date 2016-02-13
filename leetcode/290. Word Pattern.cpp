@@ -13,12 +13,9 @@ public:
         vector<string> strv;
         for(int j = 0; j < str.size(); j++)
         {
-            char* c = new char[100];
-            int i = 0;
+            string s;
             while(j < str.size() && str[j]!=' ')
-                c[i++] = str[j++];
-            string s(c);
-            delete[] c;
+                s += str[j++];
             strv.push_back(s);
         }
         if(pattern.size()!=strv.size())

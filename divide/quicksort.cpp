@@ -50,3 +50,33 @@ int main()
         cout<<a[i]<<" ";
     cout<<endl;
 }
+
+
+
+int partition(vector<int>& a, int low, int high)
+{
+    int i = low -1;
+    int j = low;
+    int x = a[high];
+    while(j < high)
+    {
+        if(a[j] <= x){
+            swap(a[j], a[i+1]);
+            i++;
+        }
+        j++;
+    }
+    swap(a[high], a[i+1]);
+    return i+1;
+}
+
+void QuickSort(vector<int>& a, int p, int r)
+{
+    if(p < r)
+    {
+        int q = partition(a,p,r);
+        QuickSort(a, p, q-1);
+        QuickSort(a, q+1, r);
+    }
+}
+

@@ -38,18 +38,15 @@ void insertSort(int* a, int n)
         if(a[i] < a[i-1])
         {
             int temp = a[i];
-            int index = i;
-            for(int j = i-1; j >=0; j--)
+            int j;
+            for(j = i-1; j >=0; j--)
             {
                 if(a[j] > temp)
-                {
                     a[j+1] = a[j];
-                    index = j;
-                }
                 else
                     break;
             }
-            a[index] = temp;
+            a[j+1] = temp;
         }
     }
 }
@@ -123,7 +120,7 @@ void MergeSort(int* a, int first, int last)
 int main()
 {
     int a[] = {4,2,8,5,10,7};
-    MergeSort(a,0,5);
+    insertSort(a,6);
     for(int i=0; i < 6; i++)
         cout<<a[i]<<" ";
     cout<<endl;
